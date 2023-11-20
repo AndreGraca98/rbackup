@@ -1,5 +1,9 @@
 use std::path::Path;
 
-fn get_path() -> &'static Path {
-    Path::new("src/hasher.rs")
+fn hash(message: &str) -> String {
+    let mut hasher = Sha256::new();
+    hasher.input_str(message);
+    let result = hasher.result_str();
+    debug!("Hash of '{}' is: {}", message, result);
+    result
 }
