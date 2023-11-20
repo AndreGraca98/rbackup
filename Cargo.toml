@@ -1,8 +1,13 @@
 [package]
 name = "rbackup"
 version = "0.1.0"
+authors = ["André Graça <andrepgraca+rbackup@gmail.com>"]
 edition = "2021"
 
 [dependencies]
 clap = { version = "4.0.0", features = ["derive"] }
+log = "0.4.20"
+log4rs = "1.2.0"
 
+[main]
+path = "src/main.rs"

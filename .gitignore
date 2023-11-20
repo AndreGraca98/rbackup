@@ -1,2 +1,6 @@
 /target
+/log
 .vscode
+
+# Ignore logs
+log.txt
