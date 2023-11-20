@@ -24,21 +24,25 @@ impl SyncPath {
 
     pub fn copy_to(&self, dest: &str) {
         if self.is_file {
-            create_file(&self.path);
+            let parent = Path::new(dest).parent().unwrap();
+            if !parent.exists() {
+                create_dir(parent.to_str().unwrap());
+            }
+            create_file(dest);
         } else if self.is_dir {
-            create_dir(&self.path);
+            create_dir(dest);
         } else {
-            error!("Path '{}' is not a file or directory!", self.path);
+            error!("Path '{}' is not a file or directory!", dest);
         }
     }
 
-    pub fn remove(&self) {
+    pub fn remove(&self, dest: &str) {
         if self.is_file {
-            remove_file(&self.path);
+            remove_file(dest);
         } else if self.is_dir {
-            remove_dir(&self.path);
+            remove_dir(dest);
         } else {
-            error!("Path '{}' is not a file or directory!", self.path);
+            error!("Path '{}' is not a file or directory!", dest);
         }
     }
 }
