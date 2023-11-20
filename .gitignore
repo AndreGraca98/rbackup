@@ -4,3 +4,8 @@
 
 # Ignore logs
 log.txt
+
+# Ignore hidden files except .gitignore and .gitkeep
+.*
+!.gitignore
+!.gitkeep

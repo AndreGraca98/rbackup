@@ -7,7 +7,9 @@ edition = "2021"
 [dependencies]
 clap = { version = "4.0.0", features = ["derive"] }
 log = "0.4.20"
-log4rs = "1.2.0"
+fern = "0.6.2"
+humantime = "2.1.0"
+
 
 [main]
 path = "src/main.rs"
